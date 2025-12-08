@@ -1,16 +1,15 @@
-from flask import Flask
-from controllers import user_controller  # Import your custom controller
+from flask import Flask, jsonify, request
+from views.user_view import user
 
-# Initialize the Flask application
+
+
 app = Flask(__name__)
 
-# Simple route for testing
-@app.route("/")
-def home():
-    # Return a basic response to confirm the app is running
-    return "Flask application is running!"
+app.register_blueprint(user)
 
-# Entry point of the application
+@app.route('/', methods=['GET'])
+def home():
+   return "<h1>HOME</h1>"
+
 if __name__ == "__main__":
-    # Run the app in debug mode (auto-reload on changes)
     app.run(debug=True)
