@@ -70,9 +70,9 @@ def update_camera_route(camera_id):
         if "_id" in request_data:
             return jsonify({"error": "_id cannot be updated"}), 400
 
-        update_camera(camera_id, request_data, token)
+        updated_camera = update_camera(camera_id, request_data, token)
 
-        return jsonify({"cameraId": camera_id}), 200
+        return jsonify(updated_camera), 200
     
     except Exception as e:
         error_message = str(e)

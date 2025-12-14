@@ -57,6 +57,7 @@ def update_camera(camera_id, new_data, token):
         
         if "companyId" in new_data:
             del new_data["companyId"]
+
         if "_id" in new_data:
             del new_data["_id"]
 
@@ -64,7 +65,9 @@ def update_camera(camera_id, new_data, token):
             raise Exception("name cannot be empty")
 
         camera_ref.update(new_data)
-        return True
+
+        updated_doc = camera_ref.get()
+        return updated_doc.to_dict()
 
     except Exception as err:
         print(f"Error updating camera: {str(err)}")

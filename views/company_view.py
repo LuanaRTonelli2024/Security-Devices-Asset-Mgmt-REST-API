@@ -22,7 +22,7 @@ def add_company():
 
         result = create_company(company_data, token)
 
-        return jsonify({"id": result})
+        return jsonify({"_id": result})
     except ValueError as err:
         return jsonify({"error": str(err)}), 400
     
