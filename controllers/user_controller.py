@@ -10,11 +10,9 @@ from models.user_model import User
 
 def create_user(displayName, email, password):
     try:
-        # 1. Normalizar dados
         displayName = displayName.strip()
         email = email.lower().strip()
 
-        # 2. Criar usuário no Firebase Auth
         user_record = auth.create_user(
             email=email,
             password=password,

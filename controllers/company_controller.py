@@ -5,7 +5,6 @@ from models.company_model import Company
 
 def create_company(company_data, token):
     try:
-        # Apenas valida se o usuário está logado (token presente)
         if not token or "uid" not in token:
             raise Exception("User not authenticated!")
 
@@ -27,18 +26,15 @@ def create_company(company_data, token):
 
 def update_company(company_id, new_name, token):
     try:
-        # Apenas valida se o usuário está logado (rota protegida)
         if not token or "uid" not in token:
             raise Exception("User not authenticated!")
 
         company_ref = database.collection(config.CONST_COMPANY_COLLECTION).document(company_id)
 
-        # Verifica se a empresa existe
         company_doc = company_ref.get()
         if not company_doc.exists:
             raise Exception("Company not found")
 
-        # Atualiza o campo name
         company_ref.update({"name": new_name})
 
         return True
@@ -72,7 +68,6 @@ def delete_company(company_id, token):
 
 def get_company_by_id(company_id, token):
     try:
-        # Apenas valida se o usuário está logado (rota protegida)
         if not token or "uid" not in token:
             raise Exception("User not authenticated!")
 
