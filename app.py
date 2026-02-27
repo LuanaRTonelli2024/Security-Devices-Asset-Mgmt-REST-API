@@ -4,7 +4,6 @@ from views.company_view import company
 from views.camera_view import camera
 
 
-
 app = Flask(__name__)
 
 app.register_blueprint(user)
@@ -16,4 +15,4 @@ def home():
    return "<h1>HOME</h1>"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=5000)
