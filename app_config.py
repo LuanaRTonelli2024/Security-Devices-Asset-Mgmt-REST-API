@@ -5,7 +5,7 @@
 CONST_FIREBASE_CREDENTIALS = "firebase.json"
 
 # Firebase project ID
-CONST_FIREBASE_PROJECT_ID = "securitydevassetsmgt"
+CONST_FIREBASE_PROJECT_ID = "security-devices-asset-mgmt"
 
 # Firestore collections
 CONST_USER_COLLECTION = "users"

@@ -66,8 +66,10 @@ def update_camera(camera_id, new_data, token):
 
         camera_ref.update(new_data)
 
-        updated_doc = camera_ref.get()
-        return updated_doc.to_dict()
+        # updated_doc = camera_ref.get()
+        # return updated_doc.to_dict()
+
+        return True
 
     except Exception as err:
         print(f"Error updating camera: {str(err)}")
