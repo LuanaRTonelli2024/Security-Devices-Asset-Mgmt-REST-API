@@ -8,10 +8,16 @@ def create_company(company_data, token):
         if not token or "uid" not in token:
             raise Exception("User not authenticated!")
 
-        company = Company(name=company_data['name'])
+        company = Company(
+            name=company_data['name'],
+            address=company_data['address'],
+            contact=company_data['contact']
+        )
 
         company_dict = {
-            "name": company.name
+            "name": company.name,
+            "address": company.address,
+            "contact": company.contact
         }
 
         company_ref = database.collection(config.CONST_COMPANY_COLLECTION).add(company_dict)
@@ -24,7 +30,7 @@ def create_company(company_data, token):
 
 
 
-def update_company(company_id, new_name, token):
+def update_company(company_id, new_data, token):
     try:
         if not token or "uid" not in token:
             raise Exception("User not authenticated!")
@@ -35,7 +41,7 @@ def update_company(company_id, new_name, token):
         if not company_doc.exists:
             raise Exception("Company not found")
 
-        company_ref.update({"name": new_name})
+        company_ref.update(new_data)
 
         return True
 

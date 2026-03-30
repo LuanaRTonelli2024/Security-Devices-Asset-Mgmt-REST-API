@@ -64,12 +64,12 @@ def update_company_route(company_id):
 
         request_data = request.json
 
-        if 'name' not in request_data:
-            return jsonify({"error": "Name not found in the request"}), 400
+        #if 'name' not in request_data:
+        #    return jsonify({"error": "Name not found in the request"}), 400
 
-        new_name = request_data['name']
+        #new_name = request_data['name']
 
-        update_company(company_id, new_name, token)
+        update_company(company_id, request_data, token)
 
         return jsonify({"companyId": company_id}), 200
     
