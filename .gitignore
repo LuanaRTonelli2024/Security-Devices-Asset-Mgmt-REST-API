@@ -26,3 +26,12 @@ yarn-error.log*
 
 # Environment files (local configs)
 /.env.*
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+package-lock.json
+
